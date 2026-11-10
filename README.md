@@ -6,6 +6,20 @@ Sitouah Abdeslam abd3l06 Étudiant 1
 Lorthios Maximilien Maznan5 Étudiant 2
 Le Lirzin Emilien emilien-24 Étudiant 3
 
+
+Gestion d'un conflit Git
+
+Deux développeurs (A et B) ont travaillé en parallèle sur le fichier monitoring.ps1.
+
+- Le A a amélioré la présentation des informations CPU, RAM et disques.
+- Le B a ajouté une fonctionnalité de journalisation avec l'option -Journal.
+
+Les deux modifications concernaient certaines parties communes du fichier, ce qui a provoquer un conflit lors de la fusion.
+
+Le conflit a été résolu en conservant les deux fonctionnalités :
+- Présentation améliorée des informations système.
+- Enregistrement des mesures et des erreurs dans surveillance.log.
+
 Questions : 
 1. Quel est l’intérêt de séparer développements en cours et versions stables ?
 Eviter tout problème dans la version en production. Il ne faut pas que la version en production soit modifié à chaud sans vérification. Au risque de causer un conflit et rendre le projet non fonctionnel.
