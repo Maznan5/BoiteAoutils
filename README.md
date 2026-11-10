@@ -6,6 +6,11 @@ Sitouah Abdeslam abd3l06 Étudiant 1
 Lorthios Maximilien Maznan5 Étudiant 2
 Le Lirzin Emilien emilien-24 Étudiant 3
 
+| Nom | Prénom | Pseudonyme GitHub | Rôle |
+|---|---|---|---|
+| Sitouah | Abdeslam | abd3l06 | Étudiant 1 |
+| Lorthios | Maximilien | Maznan5 | Étudiant 2 |
+| Le Lirzin | Emilien | emilien-24 | Étudiant 3 |
 
 Gestion d'un conflit Git
 
