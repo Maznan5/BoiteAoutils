@@ -56,3 +56,40 @@ catch {
     # Gestion des erreurs lors de la recuperation des informations
     Write-Host "Erreur lors de la recuperation des informations RAM." -ForegroundColor Red
 }
+
+
+
+# ==========================================
+# Fonction : Surveillance des disques
+# ==========================================
+
+Write-Host "`n--- UTILISATION DES DISQUES ---" -ForegroundColor Yellow
+
+try {
+    # Recuperation des informations sur les disques
+    $disks = Get-CimInstance Win32_LogicalDisk -Filter "DriveType=3"
+
+    foreach ($disk in $disks) {
+
+        # Calcul de la capacite totale et de l'espace disponible (conversion en Go)
+        $totalDisk = [math]::Round($disk.Size / 1GB, 2)
+        $freeDisk = [math]::Round($disk.FreeSpace / 1GB, 2)
+
+        # Calcul de l'espace utilise
+        $usedDisk = [math]::Round($totalDisk - $freeDisk, 2)
+
+        # Calcul du pourcentage d'utilisation
+        $usageDisk = [math]::Round(($usedDisk / $totalDisk) * 100, 2)
+
+        # Affichage des resultats
+        Write-Host "`nDisque : $($disk.DeviceID)"
+        Write-Host "Capacite totale : $totalDisk Go"
+        Write-Host "Espace utilise : $usedDisk Go"
+        Write-Host "Espace disponible : $freeDisk Go"
+        Write-Host "Utilisation : $usageDisk %"
+    }
+}
+catch {
+    # Gestion des erreurs lors de la recuperation des informations
+    Write-Host "Erreur lors de la recuperation des informations des disques." -ForegroundColor Red
+}
